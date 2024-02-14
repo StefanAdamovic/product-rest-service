@@ -25,4 +25,7 @@ public class Product {
     @NotBlank(message = "Product name cannot be blank")
     private String name;
 
+    public Product(ProductRequest request) {
+        this.name = request.name();
+    }
 }

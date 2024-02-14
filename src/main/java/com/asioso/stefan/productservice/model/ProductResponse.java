@@ -10,6 +10,9 @@ public record ProductResponse(
 
         @Size(min = 2, max = 50, message = "Product name must be between 2 and 50 characters")
         @NotNull(message = "Product name cannot be null")
-        String name
+        String name,
+
+        @NotNull(message = "Product name cannot be null")
+        String self_link
 ) {
 }
