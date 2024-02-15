@@ -17,7 +17,7 @@ public class CustomProductRepositoryImpl implements CustomProductRepository {
     @Override
     public List<Product> findAll(String sortField, String sortDirection, long limit, long offset) {
 
-        String sql = String.format("SELECT * FROM Product p ORDER BY %s %s LIMIT %d OFFSET %d",
+        String sql = String.format("SELECT * FROM Product p ORDER BY p.%s %s LIMIT %d OFFSET %d",
                 sortField, sortDirection, limit, offset);
 
         Query query = entityManager.createNativeQuery(sql, Product.class);
