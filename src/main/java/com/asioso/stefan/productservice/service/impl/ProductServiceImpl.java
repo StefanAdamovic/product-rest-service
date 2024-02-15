@@ -37,7 +37,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductPageResponse getAllProducts(long start, long limit, String sortField, String sortOrder) {
 
-        List<Product> products = productRepository.findByLimitAndOffset(limit, start);
+        if (start == 0)
+            start = 1;
+
+        List<Product> products = productRepository.findAll(sortField, sortOrder.toUpperCase(), limit, start - 1);
 
 
         List<ProductResponse> productResponses = products.stream()

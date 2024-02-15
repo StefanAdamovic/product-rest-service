@@ -36,7 +36,7 @@ public class ProductController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
     public ProductPageResponse getAllProducts(
-            @RequestParam(value = "start", defaultValue = "0", required = false) long start,
+            @RequestParam(value = "start", defaultValue = "1", required = false) long start,
             @RequestParam(value = "limit", defaultValue = "10", required = false) long limit,
             @RequestParam(value = "sort", defaultValue = "id", required = false) String sortField,
             @RequestParam(value = "order", defaultValue = "asc", required = false) String sortOrder) {
