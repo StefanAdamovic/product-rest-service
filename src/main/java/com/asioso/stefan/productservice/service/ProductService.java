@@ -1,15 +1,15 @@
 package com.asioso.stefan.productservice.service;
 
-import com.asioso.stefan.productservice.model.ProductRequest;
-import com.asioso.stefan.productservice.model.ProductResponse;
-
-import java.util.List;
+import com.asioso.stefan.productservice.dto.ProductPageResponse;
+import com.asioso.stefan.productservice.dto.ProductRequest;
+import com.asioso.stefan.productservice.dto.ProductResponse;
 
 public interface ProductService {
 
     ProductResponse createProduct(ProductRequest product);
 
-    List<ProductResponse> getAllProducts();
+    ProductPageResponse getAllProducts(long start, long limit, String sortField, String sortOrder);
+
 
     ProductResponse getProductById(Long id);
 

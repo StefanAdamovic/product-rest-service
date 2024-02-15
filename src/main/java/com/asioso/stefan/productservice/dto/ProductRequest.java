@@ -1,4 +1,4 @@
-package com.asioso.stefan.productservice.model;
+package com.asioso.stefan.productservice.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
