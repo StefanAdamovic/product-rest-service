@@ -8,6 +8,7 @@ import com.asioso.stefan.productservice.exception.ProductNotFoundException;
 import com.asioso.stefan.productservice.model.Product;
 import com.asioso.stefan.productservice.repository.ProductRepository;
 import com.asioso.stefan.productservice.service.ProductService;
+import com.asioso.stefan.productservice.util.ValidationUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,10 +37,13 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public ProductPageResponse getAllProducts(long start, long limit, String sortField, String sortOrder) {
 
-        if (start == 0)
-            start = 1;
+        start = ValidationUtil.validateStart(start);
+        limit = ValidationUtil.validateLimit(limit);
 
-        List<Product> products = productRepository.findAll(sortField, sortOrder.toUpperCase(), limit, start - 1);
+        String validatedSortField = ValidationUtil.validateSortField(sortField);
+        String validatedSortOrder = ValidationUtil.validateSortOrder(sortOrder);
+
+        List<Product> products = productRepository.findAll(validatedSortField, validatedSortOrder, limit, start - 1);
 
 
         List<ProductResponse> productResponses = products.stream()
