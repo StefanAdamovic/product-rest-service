@@ -33,7 +33,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
 
-    //TODO Complete getAll with params
     @Override
     public ProductPageResponse getAllProducts(long start, long limit, String sortField, String sortOrder) {
 
