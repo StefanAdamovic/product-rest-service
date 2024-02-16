@@ -24,7 +24,7 @@ public abstract class ValidationUtil {
     }
 
     public static long validateStart(long start) {
-        if (start < 0) {
+        if (start < 1) {
             return 1;
         }
         return start;
