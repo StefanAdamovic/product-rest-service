@@ -42,7 +42,6 @@ public class ProductController {
             @RequestParam(value = "limit", defaultValue = "10", required = false) long limit,
             @RequestParam(value = "sort", defaultValue = "id", required = false) String sortField,
             @RequestParam(value = "order", defaultValue = "asc", required = false) String sortOrder) {
-
         return productService.getAllProducts(start, limit, sortField, sortOrder);
     }
 
