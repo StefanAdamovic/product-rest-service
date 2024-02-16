@@ -9,14 +9,13 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/shop/v2/products")
 @Validated
+@CrossOrigin
 public class ProductController {
 
     private final ProductService productService;
@@ -68,7 +67,6 @@ public class ProductController {
     public ProductResponse deleteProduct(@PathVariable Long id) {
         return productService.deleteProduct(id);
     }
-
 
 
 }
