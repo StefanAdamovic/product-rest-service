@@ -15,8 +15,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-//TODO Implement service
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -89,7 +87,6 @@ public class ProductServiceImpl implements ProductService {
     public ProductResponse deleteProduct(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new ProductNotFoundException("Specified product does not exist!"));
-
 
         productRepository.deleteById(id);
         return new ProductResponse(product);
