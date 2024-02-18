@@ -26,7 +26,7 @@ class ProductTest {
     public void testProductNameLengthMinimum() {
         Product product = new Product(1L, "A");
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
-        assertFalse(violations.isEmpty()); // Expect violations due to min length constraint
+        assertFalse(violations.isEmpty());
     }
 
     @Test
@@ -34,7 +34,7 @@ class ProductTest {
         ProductRequest request = new ProductRequest("This is a very long product name exceeding fifty characters to test the maximum length constraint");
         Product product = new Product(request);
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
-        assertFalse(violations.isEmpty()); // Expect violations due to max length constraint
+        assertFalse(violations.isEmpty());
     }
 
     @Test
@@ -42,6 +42,6 @@ class ProductTest {
         ProductRequest request = new ProductRequest("");
         Product product = new Product(request);
         Set<ConstraintViolation<Product>> violations = validator.validate(product);
-        assertFalse(violations.isEmpty()); // Expect violations due to not blank constraint
+        assertFalse(violations.isEmpty());
     }
 }

@@ -54,7 +54,7 @@ class ProductResponseTest {
 
     @Test
     void productResponseWithNullId() {
-        Product product = new Product(null, "ValidName"); // Simulating a scenario that should actually be prevented by the constructor logic
+        Product product = new Product(null, "ValidName");
         ProductResponse response = new ProductResponse(product);
         Set<ConstraintViolation<ProductResponse>> violations = validator.validate(response);
 

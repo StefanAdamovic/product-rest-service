@@ -34,12 +34,12 @@ class ProductPageResponseTest {
     public void testSettersAndGetters() {
         ProductPageResponse response = new ProductPageResponse();
 
-        ProductsMetaInfo meta = new ProductsMetaInfo(); // Adjust constructor or parameters as needed
+        ProductsMetaInfo meta = new ProductsMetaInfo();
         response.setMeta(meta);
         assertEquals(meta, response.getMeta());
 
-        ProductResponse product1 = new ProductResponse(); // Adjust constructor or parameters as needed
-        ProductResponse product2 = new ProductResponse(); // Adjust constructor or parameters as needed
+        ProductResponse product1 = new ProductResponse();
+        ProductResponse product2 = new ProductResponse();
         List<ProductResponse> products = Arrays.asList(product1, product2);
         response.setProducts(products);
 

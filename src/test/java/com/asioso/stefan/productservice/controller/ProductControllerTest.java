@@ -30,21 +30,20 @@ public class ProductControllerTest {
     @MockBean
     private ProductService productService;
 
-    // Example product data
     private ProductResponse productResponse;
     private ProductPageResponse productPageResponse;
 
     @BeforeEach
     public void setup() {
-        // Initialize with default values
+
         productResponse = new ProductResponse();
         productResponse.setId(1L);
         productResponse.setName("Test Product");
 
-        // Mock the service layer for different scenarios
+
         given(productService.createProduct(any(ProductRequest.class))).willReturn(productResponse);
         given(productService.getProductById(anyLong())).willReturn(productResponse);
-        // Ensure this mock behavior reflects the update operation correctly
+
         given(productService.updateProduct(eq(1L), any(ProductRequest.class)))
                 .willAnswer(invocation -> {
                     ProductRequest request = invocation.getArgument(1);
@@ -65,14 +64,14 @@ public class ProductControllerTest {
 
     @Test
     public void getAllProductsTest() throws Exception {
-        // Assuming productPageResponse is properly initialized in setup()
+
         given(productService.getAllProducts(anyLong(), anyLong(), anyString(), anyString())).willReturn(productPageResponse);
 
         mockMvc.perform(get("/shop/v2/products")
                         .param("start", "1")
                         .param("limit", "10"))
                 .andExpect(status().isOk());
-        // Further assertions can be made based on the structure of ProductPageResponse
+
     }
 
     @Test

@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-// Use MockitoExtension to enable Mockito annotations
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceImplTest {
 
@@ -37,7 +36,6 @@ public class ProductServiceImplTest {
 
     @BeforeEach
     void setUp() {
-        // Initialize your test data here
         productRequest = new ProductRequest("Test Product");
         product = new Product(productRequest);
         product.setId(1L);
@@ -159,10 +157,5 @@ public class ProductServiceImplTest {
         verify(productRepository, times(1)).findById(productId);
         verify(productRepository, never()).deleteById(anyLong());
     }
-
-
-
-
-
-
+    
 }

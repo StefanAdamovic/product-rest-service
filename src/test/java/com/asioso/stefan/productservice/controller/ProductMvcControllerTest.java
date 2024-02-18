@@ -32,15 +32,14 @@ public class ProductMvcControllerTest {
 
     @BeforeEach
     public void setup() {
-        // Initialize your mock product response and product page response here
-        product = new ProductResponse(); // Assume ProductResponse has appropriate fields and setters
+
+        product = new ProductResponse();
         product.setId(1L);
         product.setName("Test Product");
 
-        // Mock the service layer responses
         given(productService.getProductById(1L)).willReturn(product);
 
-        productPageResponse = new ProductPageResponse(); // Initialize with default or mock values
+        productPageResponse = new ProductPageResponse();
         given(productService.getAllProducts(1, 10, "id", "asc")).willReturn(productPageResponse);
     }
 

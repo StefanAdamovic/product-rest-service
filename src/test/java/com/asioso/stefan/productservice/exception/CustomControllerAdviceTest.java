@@ -27,10 +27,9 @@ public class CustomControllerAdviceTest {
     private ProductService productService;
     @Test
     public void whenProductNotFoundExceptionIsThrown_thenRespondWith404() throws Exception {
-        // Given
+
         given(productService.getProductById(anyLong())).willThrow(new ProductNotFoundException("Product not found"));
 
-        // When & Then
         mockMvc.perform(get("/shop/v2/products/{id}", 1L))
                 .andExpect(status().isNotFound())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
